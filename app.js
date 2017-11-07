@@ -6,29 +6,31 @@ app.engine('html', nunjucks.render); // when giving html files to res.render, te
 nunjucks.configure('views', {
     noCache: true
 }); // point nunjucks to the proper directory for templates
+app.use(express.static(__dirname + '/public'));
+const routes = require('./routes');
+app.use('/', routes);
 
+app.listen(3030, () => console.log('hi'));
 
-app.listen(3000, () => console.log('hi'));
-
-app.get('/', (req, res) => res.render('index.html', locals));
+// app.get('/', (req, res) => res.render('index.html', locals));
 
 // app.get('/is-anybody-there', (req, res) => res.send('<h1>?????</h1>'));
 
 // app.use('/modernism', (req, res, next) => next());
 
-var locals = {
-    title: 'An Example',
-    people: [{
-            name: 'Gandalf'
-        },
-        {
-            name: 'Frodo'
-        },
-        {
-            name: 'Hermione'
-        }
-    ]
-};
+// var locals = {
+//     title: 'An Example',
+//     people: [{
+//             name: 'Gandalf'
+//         },
+//         {
+//             name: 'Frodo'
+//         },
+//         {
+//             name: 'Hermione'
+//         }
+//     ]
+// };
 // nunjucks.configure('views', {
 //     noCache: true
 // });
