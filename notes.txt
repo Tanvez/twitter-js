@@ -1,0 +1,41 @@
+//for AJAX
+//console.log('body parser', bodyParser);
+// app.get('/', (req, res) => res.render('index.html', locals));
+
+// app.get('/is-anybody-there', (req, res) => res.send('<h1>?????</h1>'));
+
+// app.use('/modernism', (req, res, next) => next());
+
+// var locals = {
+//     title: 'An Example',
+//     people: [{
+//             name: 'Gandalf'
+//         },
+//         {
+//             name: 'Frodo'
+//         },
+//         {
+//             name: 'Hermione'
+//         }
+//     ]
+// };
+// nunjucks.configure('views', {
+//     noCache: true
+// });
+// nunjucks.render('index.html', locals, function (err, output) {
+//     console.log(output);
+// });
+
+//interpolate ex: ${variable}
+//nunjucks help create html via index.html
+
+//POSTGRES - TWITTER.SQL
+var pg = require('pg');
+var client = new pg.Client('postgres://localhost/twitter');
+client.connect();
+
+client.query('SELECT * FROM user', function (err, data){
+    if(err)return console.log(err);
+    data.rows.forEach(function(rowObject){}
+    console.log(rowObject));//{name: Kate}
+})

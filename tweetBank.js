@@ -1,4 +1,4 @@
-const _ = require('lodash');
+const _ = require('lodash'); // library of functions
 
 var data = [];
 //     name: 'Bob',
